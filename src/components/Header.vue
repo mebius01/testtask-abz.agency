@@ -46,6 +46,10 @@ import logo from "../../public/img/logo.svg"
 
       li {
         margin-left: 28px;
+
+        a {
+          font-size: 15px;
+        }
       }
     }
   }

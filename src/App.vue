@@ -3,6 +3,7 @@
     <Header />
     <Banner />
     <Acquainted />
+    <Users />
   </div>
 </template>
 
@@ -10,12 +11,14 @@
 import Header from "./components/Header"
 import Banner from "./components/Banner"
 import Acquainted from "./components/Acquainted"
+import Users from "./components/Users"
 export default {
   name: "App",
   components: {
     Header,
     Banner,
-    Acquainted
+    Acquainted,
+    Users
   }
 };
 </script>
@@ -29,6 +32,7 @@ html {
   box-sizing: border-box;
   font-family: 'Open Sans', sans-serif;
   font-weight: 400;
+  color: #212529;
 
   background-color: grey;
 }
