@@ -4,6 +4,7 @@
     <Banner />
     <Acquainted />
     <Users />
+    <Registration />
   </div>
 </template>
 
@@ -12,20 +13,23 @@ import Header from "./components/Header"
 import Banner from "./components/Banner"
 import Acquainted from "./components/Acquainted"
 import Users from "./components/Users"
+import Registration from "./components/Registration"
 export default {
   name: "App",
   components: {
     Header,
     Banner,
     Acquainted,
-    Users
+    Users,
+    Registration
   }
 };
 </script>
 
 <style lang="scss">
-@import "normalize-scss";
-@include normalize();
+// @import "normalize-scss";
+// @include normalize();
+@import "../node_modules/reset-css/sass/_reset";
 @import "../public/style/base";
 html {
   margin: 0;
