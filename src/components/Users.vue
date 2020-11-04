@@ -4,12 +4,12 @@
       <h2>Our cheerful users</h2>
       <p>Attention! Sorting users by registration date</p>
       <div class="content">
-        <p class="user">1</p>
-        <p class="user">2</p>
-        <p class="user">3</p>
-        <p class="user">4</p>
-        <p class="user">5</p>
-        <p class="user">6</p>
+        <User />
+        <User />
+        <User />
+        <User />
+        <User />
+        <User />
       </div>
       <button class="content__btn">Show more</button>
     </div>
@@ -17,7 +17,11 @@
 </template>
 
 <script>
+import User from "./User"
   export default {
+    components: {
+      User
+    }
     
   }
 </script>
@@ -40,7 +44,7 @@
     }
     .content {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(210px, auto));
+      grid-template-columns: repeat(auto-fit, minmax(200px, auto));
       justify-items: center;
       gap: 30px;
       padding-top: 50px;

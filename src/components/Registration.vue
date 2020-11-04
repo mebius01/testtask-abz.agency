@@ -79,7 +79,7 @@
         margin-bottom: 20px;
       }
       p {
-        color: #696868;
+        color: #44474A;
         text-align: center;
         line-height: 23px;
         width: 463px;
@@ -102,6 +102,7 @@
         margin-bottom: 35px;
         margin-top: 12px;
         outline: none;
+        color: #44474A;
         &::placeholder {
           color: #D0D4D9;
         }
