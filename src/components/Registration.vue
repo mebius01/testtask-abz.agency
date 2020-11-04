@@ -28,8 +28,15 @@
         </div>
         <div class="file">
           <label for="file">Photo</label>
-          <input type="file" name="file" @change="handleFileChange" ref="myFiles" accept=".jpg, .jpeg, .png">
+          <div class="field">
+            <span>{{value}}</span>
+            <label>
+              <input type="file" name="file" @change="handleFileChange" ref="myFiles" accept=".jpg, .jpeg, .png"/>
+                Browse
+            </label>
+          </div>
         </div>
+        <hr>
         <button class="btn">Sing up now</button>
       </form>
     </div>
@@ -38,9 +45,14 @@
 
 <script>
   export default {
+    data() {
+      return {
+        value: "Upload your photo"
+      }
+    },
     methods: {
       handleFileChange() {
-        console.log(this.$refs.myFiles.files[0].name);
+        this.value = this.$refs.myFiles.files[0].name
       }
     }
   }
@@ -59,7 +71,6 @@
       flex-direction: column;
       justify-content: center;
       align-items: center;
-      border: 1px solid;
 
       h2 {
         @extend .h1_desctop;
@@ -81,7 +92,6 @@
       justify-content: center;
       align-items: center;
       input {
-        box-sizing: border-box;
         width: 463px;
         height: 34px;
         border: 2px solid #E9ECEE;
@@ -114,20 +124,36 @@
           margin-left: 8px;
         }
       }
-      input[type=file] {
-        padding: 0;
-        text-align: center;
-      
-        &::-webkit-file-upload-button {
-          background-color: #F8F7F5;
-          border: none;
-          border-left: 1px solid #D0D4D9;
-          height: 30px;
-          float: right;
-          outline: none;
+      .file {
+
+        .field {
+          @extend input;
+          position: relative;
+          
+          span {
+            color: #CCC;
+            position: absolute;
+            top:5px;
+            left: 15px;
+          }
+
+          input[type="file"] {
+            display: none;
+          }
+          label {
+            position: absolute;
+            top:0;
+            right: 0;
+            background-color: #F8F7F5;
+            height: 32px;
+            text-align: center;
+            padding: 6px 10px;
+            cursor: pointer;
+          }
         }
+        
       }
-      .input, .file {
+      .input{
         display: flex;
         flex-direction: column;
       }

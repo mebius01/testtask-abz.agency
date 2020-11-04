@@ -5,6 +5,7 @@
     <Acquainted />
     <Users />
     <Registration />
+    <Footer />
   </div>
 </template>
 
@@ -14,6 +15,7 @@ import Banner from "./components/Banner"
 import Acquainted from "./components/Acquainted"
 import Users from "./components/Users"
 import Registration from "./components/Registration"
+import Footer from "./components/Footer"
 export default {
   name: "App",
   components: {
@@ -21,7 +23,8 @@ export default {
     Banner,
     Acquainted,
     Users,
-    Registration
+    Registration,
+    Footer
   }
 };
 </script>
@@ -31,6 +34,9 @@ export default {
 // @include normalize();
 @import "../node_modules/reset-css/sass/_reset";
 @import "../public/style/base";
+* {
+  box-sizing: border-box
+}
 html {
   margin: 0;
   box-sizing: border-box;

@@ -1,5 +1,5 @@
 <template>
-  <header>
+  <header class="container">
     <nav>
       <a href="/" class="logo"><img :src="logo.src" :alt="logo.title"></a>
       <ul class="menu">
@@ -30,10 +30,8 @@ import logo from "../../public/img/logo.svg"
 
 <style lang="scss" scoped>
 @import "../../public/style/base";
-  header {
-    @extend .container;
-  }
   nav {
+    height: 58px;
     display: flex;
     justify-content: space-between;
     align-items: center;
