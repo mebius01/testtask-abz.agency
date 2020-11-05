@@ -33,17 +33,21 @@
     filters: {
       cutEmail: (value) => {
         if (value.length > 23) {
-          return value.slice(1, 20)+'...'
+          return value.slice(0, 20)+'...'
         } else {
           return value
         }
       },
       cutName: (value) => {
-        if (value.length > 18) {
-          return value.slice(1, 18)+'...'
-        } else {
-          return value
-        }
+        const arr = value.split(" ")
+        let str = ""
+        arr.forEach(el => {
+          if (el.length > 18) {
+            str = str + " " + el.slice(0, 18)+'...'
+          }
+          else {str = str + ' ' + el}
+        });
+        return str
       },
     }
   }

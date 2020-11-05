@@ -9,7 +9,11 @@
           :object="item" />
       </ul>
 
-      <button class="content__btn" @click="addUsers">Show more</button>
+      <button class="content__btn"
+        @click="addUsers"
+        v-if="links.next_url"
+        >Show more
+      </button>
     </div>
   </div>
 </template>
@@ -24,15 +28,20 @@ import User from "./User"
     data() {
       return {
         users: [],
+        data: [],
         count: 6,
+        page: 1,
+        links: null,
         url: "https://frontend-test-assignment-api.abz.agency/api/v1"
       }
     },
     methods: {
       getUsers() {
-        axios.get(`${this.url}/users?page=1&count=${this.count}`)
+        axios.get(`${this.url}/users?page=${this.page}&count=${this.count}`)
         .then(response => {
-          this.users = response.data.users
+          this.data = response.data
+          this.links = this.data.links
+          this.users = this.data.users
         })
         .catch(error => {
           console.log(error);
