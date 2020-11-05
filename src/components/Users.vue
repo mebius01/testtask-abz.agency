@@ -4,11 +4,11 @@
       <h2>Our cheerful users</h2>
       <p>Attention! Sorting users by registration date</p>
       <ul class="content">
-          <li v-for="item in users" :key="item.id">
-            {{item}}
-          </li>
+        <User v-for="item in users"
+          :key="item.id"
+          :object="item" />
       </ul>
-      <User />
+
       <button class="content__btn">Show more</button>
     </div>
   </div>
@@ -27,7 +27,7 @@ import User from "./User"
       }
     },
     created() {
-      axios.get("https://frontend-test-assignment-api.abz.agency/api/v1/users?page=1&count=6")
+      axios.get("https://frontend-test-assignment-api.abz.agency/api/v1/users?page=1&count=36")
         .then(response => {
           this.users = response.data.users
         })
