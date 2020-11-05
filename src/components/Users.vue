@@ -3,24 +3,37 @@
     <div class="main_content">
       <h2>Our cheerful users</h2>
       <p>Attention! Sorting users by registration date</p>
-      <div class="content">
-        <User />
-        <User />
-        <User />
-        <User />
-        <User />
-        <User />
-      </div>
+      <ul class="content">
+          <li v-for="item in users" :key="item.id">
+            {{item}}
+          </li>
+      </ul>
+      <User />
       <button class="content__btn">Show more</button>
     </div>
   </div>
 </template>
 
 <script>
+import axios from "axios"
 import User from "./User"
   export default {
     components: {
       User
+    },
+    data() {
+      return {
+        users: []
+      }
+    },
+    created() {
+      axios.get("https://frontend-test-assignment-api.abz.agency/api/v1/users?page=1&count=6")
+        .then(response => {
+          this.users = response.data.users
+        })
+        .catch(error => {
+          console.log(error);
+        })
     }
     
   }
