@@ -9,7 +9,7 @@
           :object="item" />
       </ul>
 
-      <button class="content__btn">Show more</button>
+      <button class="content__btn" @click="addUsers">Show more</button>
     </div>
   </div>
 </template>
@@ -23,17 +23,28 @@ import User from "./User"
     },
     data() {
       return {
-        users: []
+        users: [],
+        count: 6,
+        url: "https://frontend-test-assignment-api.abz.agency/api/v1"
       }
     },
-    created() {
-      axios.get("https://frontend-test-assignment-api.abz.agency/api/v1/users?page=1&count=36")
+    methods: {
+      getUsers() {
+        axios.get(`${this.url}/users?page=1&count=${this.count}`)
         .then(response => {
           this.users = response.data.users
         })
         .catch(error => {
           console.log(error);
         })
+      },
+      addUsers() {
+        this.count = this.count + 6
+        this.getUsers()
+      }
+    },
+    created() {
+      this.getUsers()
     }
     
   }

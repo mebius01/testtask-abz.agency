@@ -53,7 +53,6 @@
 
 <style lang="scss" scoped>
   .card {
-    border: 1px solid red;
     width: 210px;
     display: flex;
     flex-direction: column;
