@@ -10,7 +10,7 @@
       </ul>
 
       <button class="content__btn"
-        @click="addUsers"
+        @click="updateUsers"
         v-if="links.next_url"
         >Show more
       </button>
@@ -47,7 +47,7 @@ import User from "./User"
           console.log(error);
         })
       },
-      addUsers() {
+      updateUsers() {
         this.count = this.count + 6
         this.getUsers()
       }
@@ -55,7 +55,6 @@ import User from "./User"
     created() {
       this.getUsers()
     }
-    
   }
 </script>
 
